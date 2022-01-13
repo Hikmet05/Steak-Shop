@@ -1,0 +1,708 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,700,900|Satisfy&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,700,900|Satisfy&display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+/*.......NAVBAR........*/
+header {
+    background-image: url(./img/bannerbg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 520px;
+}
+.header-title {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 3px;
+    line-height: 55px;
+    font-family: 'Satisfy';
+    font-weight: 100;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+@media screen and (min-width:960px) {
+    .header-title {
+        top: 30%;
+        font-size: 90px;
+        line-height: 1.2em;
+    }
+}
+
+.navbar {
+    background-color: #555;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding:30px 50px;
+    position: sticky;
+    width: 100%;
+    z-index: 1000;
+}
+.navigation {
+    width: 50%;
+}
+.navigation ul{
+    display: flex;
+    justify-content: space-around;
+}
+.navigation ul li a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 80px;
+    text-transform: uppercase;
+    color: #000;
+    transition: 0.3s;
+}
+.navigation ul li a:hover {
+    color: #FFC000;
+}
+
+
+#dropdown {
+    background-color:#fff;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    top: 90px;
+    width: 150px;
+    height: 100px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: 0.3s;
+}
+#dropdown li {
+    border-bottom: 1px solid #ccc;
+}
+#dropdown li a {
+    line-height: 25px;
+    padding:20px;
+}
+.navigation ul li:nth-child(4):hover #dropdown {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+.navigation ul li:nth-child(5):hover #dropdown {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.search a {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 20px;
+    transition: 0.3s;
+}
+.search a:hover {
+    border: 1px solid #FFC000;
+    color: #FFC000;
+}
+
+
+
+
+@media screen and (max-width:960px) {
+    .navigation {
+        display: none !important;
+    }
+    .navbar {
+        padding: 10px 50px ;
+        justify-content: space-between;
+    }
+    .navbar .logo img {
+        width: 70px;
+        height: 70px;
+    }
+    .search {
+        display: none;
+    }
+}
+
+/*.......NAVBAR_MOBILE.......*/
+
+.nav-mobile {
+    background: #555;
+    padding-left: 65px;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 93px;
+    right: 0;
+    transform: translateY(-242px);
+    z-index: -1000;
+    transition: 0.5s linear;
+}
+
+.burger input:checked ~ .nav-mobile{
+    visibility: visible;
+    transform: translate(0);  
+}
+
+.nav-mobile ul li a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #000;
+    opacity: 0;
+    transition: 0.5s;
+}
+.nav-mobile ul {
+    transform: translateX(-350px);
+    transition: 1.5s;
+}
+.burger input:checked ~ .nav-mobile ul {
+    transform: translateX(0);
+}
+.burger input:checked ~ .nav-mobile ul li a {
+    opacity: 1;
+}
+.nav-mobile ul li a:hover {
+    color: #FFC000;
+}
+
+
+/*......BURGER.....*/
+#checkbox {
+    width: 40px;
+    height: 32px;
+    top: 30px;
+    right: 46px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    position: absolute;
+}
+.burger span {
+    display: block;
+    z-index: 1;
+    margin-bottom: 5px;
+    background: #fff;
+    width: 30px;
+    height: 5px;
+    transition: 0.4s;
+}
+.burger span:nth-child(2) {
+    transform-origin: 0% 0%;
+}
+.burger span:nth-child(4) {
+    transform-origin: 0% 100%;
+}
+.burger input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg);
+}
+.burger input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg);
+}
+.burger input:checked ~ span:nth-child(3) {
+    transform: translateX(4px);
+    opacity: 0;
+}
+
+
+@media screen and (min-width:960px) {
+    .burger {
+        display: none !important;
+    }
+    .navbar {
+        background-color: transparent !important;
+    }
+
+}
+
+/*>>>>>>>>>>>>>> SECTION RECIPES <<<<<<<<<<<<<<<<*/
+
+.recipes-section {
+    padding: 50px;
+}
+.recipes-section .container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+@media screen and (max-width:960px) {
+    .recipes-section .container {
+        flex-direction: column;
+    }
+}
+.box .img img {
+    width: 150px;
+}
+.box {
+    text-align: center;
+    margin-bottom: 60px;
+    border: 1px solid #FFC000;
+    border-radius: 0px 60px 0px 60px;
+    padding: 30px;
+    box-shadow: 0 5px 15px 5px rgba(0, 0, 2, 0.226);
+}
+.box h3 {
+    margin: 30px 0px;
+    font-family: 'Satisfy';
+    font-size: 30px;
+    font-weight: 500;
+}
+.box h4 {
+    font-family: 'Roboto';
+    color: #555;
+    font-size: 14px;
+    font-weight: 400;
+}
+.box p {
+    font-family: 'Roboto';
+    color: #555;
+    font-size: 14px;
+    margin: 10px 0px 50px 0px;
+}
+.box .btn {
+    color: #000;
+    border: 1px solid #FFC000;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.box .btn:hover {
+    background-color: #FFC000;
+    color: #fff;
+}
+
+/*>>>>>>>>>>>>>>>> VIDEO-SECTION >>>>>>>>>>>>>>>>>*/
+.video-section {
+    padding: 0 50px;
+}
+.video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.big-img img {
+    width: 300px;
+
+}
+.video-box {
+    padding: 0px 30px;
+}
+.video-box h3 {
+    font-family: 'Satisfy';
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.video-box p {
+    font-family: 'Roboto';
+    color: #777;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 30px 0px;
+}
+.video .video-text p {
+    margin: 5px;
+}
+.video .video-text h3 {
+    margin: 5px 0;
+}
+.video {
+    display: flex;
+    align-items: center;
+}
+.video a i {
+    font-size: 70px;
+    color: #FFC000;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+.video a i:hover {
+    background-color: #FFC000;
+    color: #fff;
+}
+.video-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.vivo-box {
+    padding: 50px;
+}
+.vivo {
+    position: relative;
+}
+.small-img1 {
+    position: absolute;
+    top: 80px;
+    left: -50px;
+}
+.small-img2 {
+    position: absolute;
+    left: 170px;
+    bottom: -80px;
+}
+@media screen and (max-width:960px) {
+    .small-img1 {
+        display: none;
+    }
+    .small-img2 {
+        display: none;
+    }
+}
+
+@media screen and (min-width:960px) {
+    .video-box > h3 {
+        font-size: 50px;  
+    }    
+    .video-container {
+        flex-wrap: nowrap;
+    }
+}
+
+/*>>>>>>>>>>>>> SECTION DISH >>>>>>>>>>>>>>*/
+
+.dishes-section {
+    padding: 50px;
+    margin-top: 150px;
+}
+.dish {
+    display: flex;
+    justify-content: space-evenly;
+}
+@media screen and (max-width:960px) {
+    .dish {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+ 
+}
+.dish-box {
+    border: 1px solid rgb(216, 215, 215);
+    border-radius: 10px;
+    text-align: center;
+    margin: 30px 10px 150px 10px;
+    padding: 100px 0 30px 0;
+    position: relative;
+    max-width: 300px;
+    min-width: 300px;
+}
+.dish-img {
+    position: absolute;
+    top: -95px;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+
+.dish-box h3 {
+    font-family: 'Satisfy';
+    font-size: 30px;
+    font-weight: 500;
+}
+.dish-box p {
+    font-family: 'Roboto';
+    color: #666;
+    font-size: 14px;
+    line-height: 28px;
+    margin-top: 20px;
+}
+.dish-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+/*>>>>>>>>>>>>>>SECTION DISCOVER >>>>>>>>>>>>*/
+
+.discover-container {
+    background-image: url(./img/discover.jpg);
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.discover-content {
+    text-align: center;
+}
+.discover-content p {
+    font-family: 'Roboto';
+    color: #666;
+    font-size: 14px;
+}
+.discover-content h3 {
+    font-family: 'Satisfy';
+    font-size: 40px;
+    font-weight: 200;
+    margin-top: 14px;
+    margin-bottom: 35px;
+}
+
+.discover-content .btn {
+    color: #fff;
+    background: #FFC000;
+    border: 1px solid #FFC000;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.discover-content .btn:hover {
+    background-color: #fff;
+    color: #FFC000;
+}
+
+/*>>>>>>>>>>>>>> FEEDBACK SECTION >>>>>>>>>>>>>>>>*/
+
+.feedback-section {
+    padding: 50px;
+}
+.feedback-container {
+    text-align: center;
+}
+
+.feedback-title h3 {
+    font-family: 'Satisfy';
+    font-size: 40px;
+    font-weight: 200;
+    margin-bottom: 30px;
+}
+@media screen and (min-width:960px) {
+    .feedback-title h3 {
+        font-size: 60px;
+    }
+}
+@media screen and (max-width:520px) {
+    .feedback-title h3 {
+        font-size: 30px;
+    }
+}
+.feedback-title p {
+    font-family: 'Roboto';
+    color: #666;
+    font-size: 14px;
+    max-width: 720px;
+    margin: auto;
+    line-height: 28px;
+}
+
+/*>>>>>>>>>>>>>>>> APP SECTION >>>>>>>>>>>>>*/
+.app-section {
+    padding: 50px;
+}
+.app-container {
+    text-align: center;
+}
+
+@media screen and (min-width:960px) {
+    .app-container {
+        display: flex;
+        padding: 0px 100px;
+    }
+}
+@media screen and (max-width:960px) {
+    .app-small-img1, .app-small-img2 {
+        display: none;
+    }
+}
+
+.app-vivo {
+    position: relative;
+}
+.app-img img {
+    width: 400px;
+}
+.app-small-img1 {
+    position: absolute;
+    top: 30px;
+    left: -90px;
+}
+.app-small-img2 {
+    position: absolute;
+    bottom: -60px;
+    left: 120px;
+}
+
+.app-text {
+    padding: 20px 70px;
+}
+.app-text h3 {
+    font-family: 'Satisfy';
+    font-size: 40px;
+    font-weight: 200;
+    margin-bottom: 30px;
+}
+
+.app-text a i {
+    font-size: 30px;
+    margin-right: 20px;
+    color: #000;
+
+}
+
+.buttons {
+    display: flex;
+    text-align: center;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    background-color: #FFC000;
+    border: 1px solid #FFC000;
+    width: 150px;
+    padding: 5px 0px;
+    margin-left: 20px;
+    font-family: 'Roboto';
+    transition: 0.3s;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #fff;
+}
+.app-btn h5 {
+    font-size: 20px;
+}
+.app-btn p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/*>>>>>>>>>>>>>>> FOOTER >>>>>>>>>>>>*/
+
+footer {
+    background-color: #222;
+    margin-top: 30px;
+}
+
+.footer-container {
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.top-footer h2 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-family: 'Satisfy';
+    font-weight: 100;
+}
+.top-footer ul li a {
+    margin-bottom: 20px;
+    line-height: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #777;
+    transition: 0.3s;
+}
+.top-footer ul li a:hover {
+    color: #FFC000;
+}
+.top-footer {
+    margin-bottom: 10px;
+    margin-right: 100px;
+}
+
+.subscribe {
+    margin:0 0 10px 0;
+}
+.subscribe h2 {
+    color: #fff;
+    font-family: 'Satisfy';
+    font-weight: 100;
+}
+
+.subscribe p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #777;
+    margin: 10px 0;
+}
+
+.subscribe input {
+    display: block;
+    padding: 14px;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 30px;
+    background-color: #2D2D2D;
+    border: none;
+    outline: none;
+}
+.subscribe input:focus::placeholder {
+    color: transparent;
+}
+.subscribe input {
+    caret-color: #FFC000;
+}
+.subscribe button {
+    padding: 15px 25px;
+    background-color: #FFC000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    border: 1px solid #FFC000;
+    outline: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.subscribe button:hover {
+    background-color: #222;
+    color: #FFC000;
+}
+
+.social {
+    margin-left: 50px;
+    padding-bottom: 30px;
+}
+
+
+
+.social span {
+    background-color: #000;
+    display: inline-block;
+    width: 40px;
+    padding: 10px;
+    transition: 0.5s;
+}
+.social span:hover {
+    background-color: #FFC000;
+}
+.social span i {
+    color: #fff;
+}
+
